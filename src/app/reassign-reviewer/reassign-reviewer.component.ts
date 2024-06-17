@@ -21,7 +21,7 @@ export class ReassignReviewerComponent {
   journalTitle: string = '';
   reviewers: any[] = [];
   journals: any[] = [];
-  selectedRubric: string = ''; // Add a variable to store the selected rubric ID
+  selectedRubric: string = ''; 
   rubrics: any[] = [];
   currentReviewer1: any = {};
   currentReviewer2: any = {};
@@ -45,7 +45,7 @@ export class ReassignReviewerComponent {
         this.journalTitle = journalTitle;
         this.loadReviewers();
         this.loadRubrics();
-        this.loadCurrentReviewers(journalId); // Load current assigned reviewers
+        this.loadCurrentReviewers(journalId); 
       }
     });
   }
@@ -58,7 +58,6 @@ export class ReassignReviewerComponent {
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   }
@@ -70,7 +69,6 @@ export class ReassignReviewerComponent {
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   }
@@ -90,13 +88,11 @@ export class ReassignReviewerComponent {
           },
           (error) => {
             console.error(error);
-            // Handle error
           }
         );
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   }
@@ -104,22 +100,22 @@ export class ReassignReviewerComponent {
 
   assignReviewer(): void {
     const reviewerIds = [
-      this.reviewer1 || this.currentReviewer1._id, // Use current value if not modified
-      this.reviewer2 || this.currentReviewer2._id, // Use current value if not modified
-      this.reviewer3 || this.currentReviewer3._id  // Use current value if not modified
+      this.reviewer1 || this.currentReviewer1._id,
+      this.reviewer2 || this.currentReviewer2._id, 
+      this.reviewer3 || this.currentReviewer3._id  
     ];
-    const rubricId = this.selectedRubric; // Get the selected rubricId
+    const rubricId = this.selectedRubric;
   
     // Check if all required fields are filled
     if (!this.selectedJournal) {
-      console.error('Please fill in all required fields.'); // Handle validation error
+      console.error('Please fill in all required fields.');
       return;
     }
   
     // Call the journal service method to assign reviewers
     this.journalService.assignReviewers(this.selectedJournal, reviewerIds, rubricId).subscribe(
       (response: any) => {
-        console.log(response.message); // Log success message
+        console.log(response.message);
         
         // Reload reviewers list to reflect updated status
         this.loadReviewers();
@@ -129,7 +125,6 @@ export class ReassignReviewerComponent {
       },
       (error: any) => {
         console.error(error);
-        // Handle error
       }
     );
   }
@@ -138,7 +133,7 @@ export class ReassignReviewerComponent {
 updateJournalStatus(journalId: string): void {
   this.journalService.getJournalById(journalId).subscribe(
     (data: any) => {
-      const status = data.status; // Assuming the API response contains the status of the journal
+      const status = data.status;
       if (status === "Under Review (Revision)") {
         this.journalService.updateJournalStatus(journalId, 'Under Review (Revision)').subscribe(
           (response: any) => {
@@ -161,7 +156,6 @@ updateJournalStatus(journalId: string): void {
     },
     (error: any) => {
       console.error(error);
-      // Handle error scenario
     }
   );
 }
@@ -192,7 +186,7 @@ updateJournalStatus(journalId: string): void {
 
     // Check if the click is inside the dropdown toggle button
     if (target.matches('.dropdown-toggle')) {
-      this.toggleDropdown(); // Toggle the dropdown
+      this.toggleDropdown();
     } else {
       // Check if the click is outside the dropdown
       const dropdownContainer = target.closest('.dropdown');

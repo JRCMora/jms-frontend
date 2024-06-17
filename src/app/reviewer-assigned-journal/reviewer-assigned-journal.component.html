@@ -18,7 +18,6 @@
             <span *ngIf="sortColumn === 'journalTitle' && sortDirection === 'asc'">&#9660;</span>
             <span *ngIf="sortColumn === 'journalTitle' && sortDirection === 'desc'">&#9650;</span>
           </th>
-          <!-- Add sorting for other columns as needed -->          
           <th (click)="sortJournals('authors')">
             Author
             <span *ngIf="sortColumn === 'authors' && sortDirection === 'asc'">&#9660;</span>
@@ -48,7 +47,6 @@
     <div class="pagination">
       <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
       <span> 
-        <!-- Iterate over page numbers and add click handler -->
         <ng-container *ngFor="let pageNumber of getPageNumbers()">
           <button (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</button>
         </ng-container>

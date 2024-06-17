@@ -50,12 +50,12 @@ body {
     width: 100%;
   }
   
-  /* Adjusted styles to show the menu when the checkbox is checked */
+
   .dropdown-toggle:checked + .dropdown-label + .dropdown-menu {
     display: block;
   }
   
-  /* Hide checkbox visually but keep it accessible for screen readers */
+
   .dropdown-toggle {
     position: absolute;
     opacity: 0;
@@ -136,7 +136,7 @@ body {
   }
   
   #navbarV a.active {
-    color: #ff5a00; /* Set the color for the active link */
+    color: #ff5a00; 
     background-color: #fff;
   }
   
@@ -220,7 +220,7 @@ body {
     background-color: #fecb98;
     padding: 20px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 10px; /* Optional: Add rounded corners to the form */
+    border-radius: 10px; 
   }
   
   select {

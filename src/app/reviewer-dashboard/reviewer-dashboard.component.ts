@@ -14,8 +14,8 @@ export class ReviewerDashboardComponent implements OnInit {
   unreadNotifications: any[] = [];
   showNotifDropdown: boolean = false;
   isDropdownOpen = false;
-  totalAssignedJournals: number = 0; // Variable to store total assigned journals
-  totalAssignedUnderReview: number = 0; // Variable to store total assigned journals under review
+  totalAssignedJournals: number = 0;
+  totalAssignedUnderReview: number = 0;
   totalAssignedReviewed: number = 0;
   journalStatusData: any[] = [];
   colorScheme: any = {
@@ -58,7 +58,6 @@ fetchJournalStatusData() {
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   }
@@ -77,7 +76,6 @@ fetchTotalAssignedJournals() {
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   }

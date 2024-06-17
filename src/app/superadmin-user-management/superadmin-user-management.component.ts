@@ -31,7 +31,7 @@ export class SuperadminUserManagementComponent {
 
   // Check if the click is inside the dropdown toggle button
   if (target.matches('.dropdown-toggle')) {
-    this.toggleDropdown(); // Toggle the dropdown
+    this.toggleDropdown();
   } else {
     // Check if the click is outside the dropdown
     const dropdownContainer = target.closest('.dropdown');
@@ -55,17 +55,16 @@ ngOnInit(): void {
     },
     (error) => {
       console.error(error);
-      // Handle error
     }
   );
 }
 
   editUser(user: any) {
-    // Implement edit functionality
+    
   }
 
   deleteUser(userId: string) {
-    // Implement delete functionality
+    
   }
 
   filterUsers() {

@@ -11,8 +11,8 @@
         <tr>
           <th (click)="sortUsers('id')">
             ID
-            <span *ngIf="sortColumn === 'id' && sortDirection === 'asc'">&#9660;</span> <!-- Downward arrow for ascending -->
-            <span *ngIf="sortColumn === 'id' && sortDirection === 'desc'">&#9650;</span> <!-- Upward arrow for descending -->
+            <span *ngIf="sortColumn === 'id' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'id' && sortDirection === 'desc'">&#9650;</span>
           </th>
           <th (click)="sortUsers('firstName')">
             Full Name
@@ -57,7 +57,6 @@
     <div class="pagination">
       <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
       <span> 
-        <!-- Iterate over page numbers and add click handler -->
         <ng-container *ngFor="let pageNumber of getPageNumbers()">
           <button (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</button>
         </ng-container>

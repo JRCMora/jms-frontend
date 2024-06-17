@@ -34,7 +34,7 @@ export class ConsolidationFeedbackComponent implements OnInit {
 
   // Check if the click is inside the dropdown toggle button
   if (target.matches('.dropdown-toggle')) {
-    this.toggleDropdown(); // Toggle the dropdown
+    this.toggleDropdown(); 
   } else {
     // Check if the click is outside the dropdown
     const dropdownContainer = target.closest('.dropdown');
@@ -66,7 +66,6 @@ export class ConsolidationFeedbackComponent implements OnInit {
         },
         (error) => {
           console.error(error);
-          // Handle error scenario
         }
       );
   }
@@ -84,14 +83,11 @@ export class ConsolidationFeedbackComponent implements OnInit {
         },
         (error) => {
           console.error(error);
-          // Handle error scenario
         }
       );
   }
 
   submitConsolidatedFeedback(): void {
-    // Here you can send the consolidated feedback and admin choice to the server
-    // For example:
     this.journalService.submitConsolidatedFeedback(this.journalId, this.consolidatedFeedback, this.adminChoice)
       .subscribe(
         (data) => {
@@ -100,7 +96,6 @@ export class ConsolidationFeedbackComponent implements OnInit {
         (error) => {
           console.error(error);
           this.snackBar.open('Submit failed!', 'Close', { duration: 3000, verticalPosition: 'top'});
-          // Handle error scenario
         }
       );
   }

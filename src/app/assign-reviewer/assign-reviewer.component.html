@@ -10,21 +10,18 @@
     <label for="reviewer1">Select Reviewer 1:</label>
 <select name="reviewer1" [(ngModel)]="reviewer1" required>
   <option value="" disabled selected>Select a reviewer</option>
-  <!-- Populate options with available reviewers excluding already selected ones -->
   <option *ngFor="let reviewer of filteredReviewers(reviewer2, reviewer3)" [value]="reviewer._id">{{ reviewer.firstName }} {{ reviewer.lastName }}</option>
 </select>
 
 <label for="reviewer2">Select Reviewer 2:</label>
 <select name="reviewer2" [(ngModel)]="reviewer2" required>
   <option value="" disabled selected>Select a reviewer</option>
-  <!-- Populate options with available reviewers excluding already selected ones -->
   <option *ngFor="let reviewer of filteredReviewers(reviewer1, reviewer3)" [value]="reviewer._id">{{ reviewer.firstName }} {{ reviewer.lastName }}</option>
 </select>
 
 <label for="reviewer3">Select Reviewer 3:</label>
 <select name="reviewer3" [(ngModel)]="reviewer3" required>
   <option value="" disabled selected>Select a reviewer</option>
-  <!-- Populate options with available reviewers excluding already selected ones -->
   <option *ngFor="let reviewer of filteredReviewers(reviewer1, reviewer2)" [value]="reviewer._id">{{ reviewer.firstName }} {{ reviewer.lastName }}</option>
 </select>
 

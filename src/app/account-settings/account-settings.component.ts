@@ -58,15 +58,12 @@ export class AccountSettingsComponent {
     this.userService.changePassword(userId, this.currentPassword, this.newPassword)
       .subscribe(
         () => {
-          // Password change successful
           this.snackBar.open('Password changed successfully', 'Close', { duration: 3000, verticalPosition: 'top' });
-          // Reset form fields
           this.currentPassword = '';
           this.newPassword = '';
           this.confirmNewPassword = '';
         },
         error => {
-          // Password change failed
           console.error('Password changed error:', error);
           this.snackBar.open('Failed to change password. Please try again later.', 'Close', { duration: 3000, verticalPosition: 'top' });
         }

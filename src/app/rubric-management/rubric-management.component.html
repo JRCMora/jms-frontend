@@ -28,7 +28,7 @@
             <td>{{ rubric.name }}</td>
             <td>
               <button class="view" (click)="viewRubric(rubric._id)">View</button>
-              <!-- <button><i class="fa-solid fa-pen-to-square"></i></button> -->
+
               <button (click)="deleteRubric(rubric._id)"><i class="fa-solid fa-trash-can"></i></button>
             </td>
           </tr>
@@ -37,7 +37,7 @@
       <div class="pagination">
         <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
         <span> 
-          <!-- Iterate over page numbers and add click handler -->
+
           <ng-container *ngFor="let pageNumber of getPageNumbers()">
             <button (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</button>
           </ng-container>

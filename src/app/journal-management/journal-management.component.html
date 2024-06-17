@@ -75,7 +75,6 @@
       <div class="pagination">
         <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
         <span> 
-          <!-- Iterate over page numbers and add click handler -->
           <ng-container *ngFor="let pageNumber of getPageNumbers()">
             <button (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</button>
           </ng-container>

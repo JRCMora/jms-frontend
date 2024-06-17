@@ -3,7 +3,7 @@
     padding-bottom: 50px;
     padding-left: 250px;
     display: flex;
-    flex-direction: column; /* Ensure a vertical layout */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -56,6 +56,6 @@ h1 {
 }
 
 .header{
-    text-align: center; /* Center the header */
+    text-align: center; 
     font-size: 30px;
 }

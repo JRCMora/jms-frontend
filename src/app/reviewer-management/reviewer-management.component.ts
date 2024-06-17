@@ -21,8 +21,8 @@ export class ReviewerManagementComponent {
   isDropdownOpen = false;
   currentPage = 1;
   itemsPerPage = 5;
-  sortDirection: string = 'asc'; // Default sorting direction
-  sortColumn: string = ''; // Default sorting column
+  sortDirection: string = 'asc'; 
+  sortColumn: string = '';
 
 
   constructor(private authService: AuthService, 
@@ -38,7 +38,7 @@ export class ReviewerManagementComponent {
 
   // Check if the click is inside the dropdown toggle button
   if (target.matches('.dropdown-toggle')) {
-    this.toggleDropdown(); // Toggle the dropdown
+    this.toggleDropdown();
   } else {
     // Check if the click is outside the dropdown
     const dropdownContainer = target.closest('.dropdown');
@@ -62,7 +62,7 @@ ngOnInit(): void {
   this.loadUsers();
 }
 
-// Method to load assigned journals for each reviewer
+// Load assigned journals for each reviewer
 loadAssignedJournals(): void {
   this.users.forEach(user => {
     this.journalService.getAssignedJournals(user._id).subscribe(
@@ -70,15 +70,14 @@ loadAssignedJournals(): void {
         if (assignedJournals.length > 0) {
           // Map assigned journals to their titles
           user.assignedJournals = assignedJournals.map(journal => journal.journalTitle);
-          user.status = 'Assigned'; // Set the status accordingly
+          user.status = 'Assigned';
         } else {
           user.assignedJournals = []; // Set empty array if no journals assigned
-          user.status = 'Not Assigned'; // Set the status accordingly
+          user.status = 'Not Assigned'; 
         }
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   });
@@ -121,7 +120,6 @@ loadAssignedJournals(): void {
         (error) => {
           console.error('Error deleting user:', error);
           this.snackBar.open('Delete Failed!', 'Close', { duration: 3000, verticalPosition: 'top'});
-          // Handle error
         }
       );
     }
@@ -133,37 +131,36 @@ loadAssignedJournals(): void {
         this.users = data.map((user, index) => ({
           ...user,
           id: index + 1,
-          assignedJournal: null // Initialize assignedJournal property
+          assignedJournal: null
         }));
-        this.loadAssignedJournals(); // Load assigned journals for each reviewer
+        this.loadAssignedJournals();
         this.filteredUsers = [...this.users];
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   }
   
   filterUsers() {
     if (!this.searchQuery.trim()) {
-      this.currentPage = 1; // Reset pagination to the first page
+      this.currentPage = 1; 
       this.filteredUsers = [...this.users];
     } else {
       const searchTerm = this.searchQuery.toLowerCase().trim();
       this.filteredUsers = this.users.filter(user => {
         const fullName = `${user.firstName.trim()} ${user.lastName.trim()}`.toLowerCase();
-        const nameRegExp = new RegExp(`\\b${searchTerm}\\b`, 'i'); // Match whole word, case insensitive
+        const nameRegExp = new RegExp(`\\b${searchTerm}\\b`, 'i');
         return (
           user.id.toString().toLowerCase().includes(searchTerm) ||
-          fullName.match(nameRegExp) || // Match exactly with full name
+          fullName.match(nameRegExp) ||
           user.email.toLowerCase().includes(searchTerm) ||
           user.role.toLowerCase().includes(searchTerm) ||
           (user.assignedJournals && user.assignedJournals.some((journal: string) => journal.toLowerCase().includes(searchTerm))) ||
           user.status.toLowerCase().includes(searchTerm)
         );
       });
-      this.currentPage = 1; // Reset pagination to the first page when a new search query is entered
+      this.currentPage = 1; 
     }
   }
 

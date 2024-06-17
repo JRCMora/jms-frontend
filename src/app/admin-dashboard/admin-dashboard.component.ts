@@ -24,7 +24,7 @@
     colorScheme: any = {
       domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
     };
-    legendPosition: LegendPosition = LegendPosition.Below; // Use LegendPosition type
+    legendPosition: LegendPosition = LegendPosition.Below;
     gradient: boolean = true;
     totalUsers: number = 0;
     totalRubrics: number = 0;
@@ -56,7 +56,6 @@
         },
         (error) => {
           console.error(error);
-          // Handle error
         }
       );
     }
@@ -68,7 +67,6 @@
         },
         (error) => {
           console.error(error);
-          // Handle error
         }
       );
     }
@@ -80,7 +78,6 @@
         },
         (error) => {
           console.error(error);
-          // Handle error
         }
       );
     }
@@ -97,7 +94,6 @@
         },
         (error) => {
           console.error(error);
-          // Handle error
         }
       );
     }
@@ -111,7 +107,7 @@
 
       // Check if the click is inside the dropdown toggle button
       if (target.matches('.dropdown-toggle')) {
-        this.toggleDropdown(); // Toggle the dropdown
+        this.toggleDropdown(); 
       } else {
         // Check if the click is outside the dropdown
         const dropdownContainer = target.closest('.dropdown');

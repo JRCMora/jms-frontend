@@ -34,7 +34,7 @@ export class NavbarComponent {
                 this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        // Check current route and set boolean variables accordingly
+        // Check current route
         this.isDashboardActive = event.url === '/admin/dashboard';
         this.isUserManagementActive = event.url === '/admin/user-management';
         this.isReviewerManagementActive = event.url === '/admin/reviewer-management';
@@ -59,12 +59,11 @@ export class NavbarComponent {
                 if (userId) {
                   this.http.get<any[]>(`https://jms-backend-testing.vercel.app/notifications/${userId}`).subscribe(
                     (data) => {
-                        this.notifications = data; // Store all notifications
+                        this.notifications = data; 
                         this.unreadNotifications = data.filter(notification => notification.status === 'unread'); // Filter unread notifications
                     },
                     (error) => {
                         console.error(error);
-                        // Hadle error
                     }
                   );
                 }
@@ -88,7 +87,7 @@ export class NavbarComponent {
 
     // Check if the click is inside the dropdown toggle button
     if (target.matches('.dropdown-toggle')) {
-      this.toggleDropdown(); // Toggle the dropdown
+      this.toggleDropdown(); 
     } else {
       // Check if the click is outside the dropdown
       const dropdownContainer = target.closest('.dropdown');

@@ -34,8 +34,7 @@ export class LoginComponent implements OnInit{
     this.authService.login(user).subscribe(
       (response) => {
         console.log(response);
-        // Save token to localStorage or a cookie
-        // Save token and userId to localStorage or a cookie
+        // Save token and userId to sessionStorage
         sessionStorage.setItem('userId', response.userId);
         sessionStorage.setItem('userRole', response.role);
         // Redirect to appropriate dashboard based on user role
@@ -73,7 +72,6 @@ export class LoginComponent implements OnInit{
       (error) => {
         console.error(error);
         this.snackBar.open('Login failed!', 'Close', { duration: 3000, verticalPosition: 'top'});
-        // Handle login error
       }
     );
   }

@@ -21,7 +21,7 @@ export class AssignReviewerComponent {
   journalTitle: string = '';
   reviewers: any[] = [];
   journals: any[] = [];
-  selectedRubric: string = ''; // Add a variable to store the selected rubric ID
+  selectedRubric: string = '';
   rubrics: any[] = [];
 
   constructor(private authService: AuthService, 
@@ -53,7 +53,6 @@ export class AssignReviewerComponent {
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   }
@@ -65,7 +64,6 @@ export class AssignReviewerComponent {
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   }
@@ -73,19 +71,19 @@ export class AssignReviewerComponent {
   assignReviewer(): void {
     
     const reviewerIds = [this.reviewer1, this.reviewer2, this.reviewer3];
-    const rubricId = this.selectedRubric; // Get the selected rubricId
+    const rubricId = this.selectedRubric;
   
     // Check if all required fields are filled
     if (!this.selectedJournal || !reviewerIds.every(id => !!id) || !rubricId) {
       this.snackBar.open('Please fill in all required fields.', 'Close', { duration: 3000, verticalPosition: 'top'});
-      console.error('Please fill in all required fields.'); // Handle validation error
+      console.error('Please fill in all required fields.');
       return;
     }
   
     // Call the journal service method to assign reviewers
     this.journalService.assignReviewers(this.selectedJournal, reviewerIds, rubricId).subscribe(
       (response: any) => {
-        console.log(response.message); // Log success message
+        console.log(response.message); 
         
         // Reload reviewers list to reflect updated status
         this.loadReviewers();
@@ -95,7 +93,6 @@ export class AssignReviewerComponent {
       },
       (error: any) => {
         console.error(error);
-        // Handle error
       }
     );
   }
@@ -136,7 +133,7 @@ export class AssignReviewerComponent {
 
     // Check if the click is inside the dropdown toggle button
     if (target.matches('.dropdown-toggle')) {
-      this.toggleDropdown(); // Toggle the dropdown
+      this.toggleDropdown();
     } else {
       // Check if the click is outside the dropdown
       const dropdownContainer = target.closest('.dropdown');

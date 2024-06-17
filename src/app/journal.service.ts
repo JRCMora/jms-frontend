@@ -11,29 +11,29 @@ export class JournalService {
 
   constructor(private http: HttpClient) { }
 
-  // Method to fetch all journals from the server
+  // Fetch all journals from the server
   getJournals(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/journals`);
   }
 
-  // Method to submit a new journal to the server
+  // Submit a new journal to the server
   submitJournal(journalData: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/journals`, journalData);
   }
 
-// Method to assign multiple reviewers to a journal
+// Assign multiple reviewers to a journal
 assignReviewers(journalId: string, reviewerIds: string[], rubricId: string): Observable<any> {
   const data = { journalId, reviewerIds, rubricId };
   return this.http.post<any>(`${this.apiUrl}/journals/${journalId}/assign-reviewers`, data);
 }
 
 
-// Method to fetch assigned journals for a specific reviewer
+// Fetch assigned journals for a specific reviewer
 getAssignedJournals(userId: string): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl}/user/reviewers/${userId}/assigned-journals`);
 }
 
-// Method to fetch a single journal by its ID
+// Fetch a single journal by its ID
 getJournalById(journalId: string): Observable<any> {
   return this.http.get<any>(`${this.apiUrl}/journals/${journalId}`);
 }
@@ -44,7 +44,7 @@ submitFeedback(journalId: string, feedback: string, choice: string, userId: stri
 }
 
 
-//  Method to fetch journals submitted by a specific user:
+//  Fetch journals submitted by a specific user:
 getJournalsByUser(userId: string): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl}/user/${userId}/journals`);
 }

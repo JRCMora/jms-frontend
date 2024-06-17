@@ -22,8 +22,8 @@ export class RubricManagementComponent {
   searchQuery: string = '';
   currentPage = 1;
   itemsPerPage = 5;
-  sortDirection: string = 'asc'; // Default sorting direction
-  sortColumn: string = ''; // Default sorting column
+  sortDirection: string = 'asc'; 
+  sortColumn: string = ''; 
 
 
   constructor(
@@ -49,7 +49,7 @@ export class RubricManagementComponent {
 
   // Check if the click is inside the dropdown toggle button
   if (target.matches('.dropdown-toggle')) {
-    this.toggleDropdown(); // Toggle the dropdown
+    this.toggleDropdown();
   } else {
     // Check if the click is outside the dropdown
     const dropdownContainer = target.closest('.dropdown');
@@ -68,7 +68,7 @@ fetchRubrics() {
     (rubrics: any[]) => {
       this.rubrics = rubrics.map((rubric, index) => ({
         ...rubric,
-        displayedId: index + 1 // Assign a new property for displayed ID starting from 1
+        displayedId: index + 1 
       }));
       this.filteredRubrics = [...this.rubrics];
     },
@@ -89,7 +89,6 @@ deleteRubric(rubricId: string) {
       (error) => {
         console.error('Error deleting user:', error);
         this.snackBar.open('Delete Failed!', 'Close', { duration: 3000, verticalPosition: 'top'});
-        // Handle error
       }
     );
   }
@@ -142,7 +141,7 @@ viewRubric(rubricId: string) {
     this.isDropdownOpen = false;
   }
 
-  // Method to filter rubrics based on search query
+  // Filter rubrics based on search query
   filterRubrics() {
     if (this.searchQuery.trim() !== '') {
       this.currentPage = 1;
@@ -173,7 +172,7 @@ viewRubric(rubricId: string) {
 
   getPageNumbers(): number[] {
     const totalPages = Math.ceil(this.filteredRubrics.length / this.itemsPerPage);
-    const visiblePages = Math.min(totalPages, 5); // Maximum 5 pages shown
+    const visiblePages = Math.min(totalPages, 5);
     const startPage = Math.max(1, this.currentPage - Math.floor(visiblePages / 2));
     const endPage = Math.min(totalPages, startPage + visiblePages - 1);
   

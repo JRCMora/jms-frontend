@@ -35,7 +35,7 @@ export class UserManagementComponent implements OnInit {
 
   // Check if the click is inside the dropdown toggle button
   if (target.matches('.dropdown-toggle')) {
-    this.toggleDropdown(); // Toggle the dropdown
+    this.toggleDropdown();
   } else {
     // Check if the click is outside the dropdown
     const dropdownContainer = target.closest('.dropdown');
@@ -127,21 +127,21 @@ editUser(userId: string) {
 
   filterUsers() {
     if (!this.searchQuery.trim()) {
-      this.currentPage = 1; // Reset pagination to the first page
+      this.currentPage = 1; 
       this.filteredUsers = [...this.users];
     } else {
       const searchTerm = this.searchQuery.toLowerCase().trim();
       this.filteredUsers = this.users.filter(user => {
         const fullName = `${user.firstName.trim()} ${user.lastName.trim()}`.toLowerCase();
-        const nameRegExp = new RegExp(`\\b${searchTerm}\\b`, 'i'); // Match whole word, case insensitive
+        const nameRegExp = new RegExp(`\\b${searchTerm}\\b`, 'i'); 
         return (
           user.id.toString().toLowerCase().includes(searchTerm) ||
-          fullName.match(nameRegExp) || // Match exactly with full name
+          fullName.match(nameRegExp) ||
           user.email.toLowerCase().includes(searchTerm) ||
           user.role.toLowerCase().includes(searchTerm)
         );
       });
-      this.currentPage = 1; // Reset pagination to the first page when a new search query is entered
+      this.currentPage = 1;
     }
   }
   

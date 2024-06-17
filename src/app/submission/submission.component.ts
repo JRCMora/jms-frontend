@@ -31,7 +31,7 @@ export class SubmissionComponent {
 
     // Check if the click is inside the dropdown toggle button
     if (target.matches('.dropdown-toggle')) {
-      this.toggleDropdown(); // Toggle the dropdown
+      this.toggleDropdown();
     } else {
       // Check if the click is outside the dropdown
       const dropdownContainer = target.closest('.dropdown');
@@ -76,7 +76,6 @@ export class SubmissionComponent {
       (error) => {
         console.error(error);
         this.snackBar.open('Submission failed!', 'Close', { duration: 3000, verticalPosition: 'top'});
-        // Handle error
       }
     );
   }

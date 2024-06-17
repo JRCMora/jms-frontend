@@ -50,12 +50,10 @@ body {
   width: 100%;
 }
 
-/* Adjusted styles to show the menu when the checkbox is checked */
 .dropdown-toggle:checked + .dropdown-label + .dropdown-menu {
   display: block;
 }
 
-/* Hide checkbox visually but keep it accessible for screen readers */
 .dropdown-toggle {
   position: absolute;
   opacity: 0;
@@ -124,7 +122,7 @@ body {
 }
 
 #navbarV a.active {
-  color: #ff5a00; /* Set the color for the active link */
+  color: #ff5a00;
   background-color: #fff;
 }
 
@@ -205,7 +203,7 @@ form {
   background-color: #fff;
   padding: 30px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 10px; /* Optional: Add rounded corners to the form */
+  border-radius: 10px; 
 }
 
 label {
@@ -234,12 +232,12 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #ff5a00; /* Hover Color */
+  background-color: #ff5a00; 
 }
 
 .formDesign {
   width: 50%;
-  margin: 0 auto; /* This will center the form horizontally */
-  text-align: center; /* This will center the contents of the form */
+  margin: 0 auto; 
+  text-align: center; 
 }
   

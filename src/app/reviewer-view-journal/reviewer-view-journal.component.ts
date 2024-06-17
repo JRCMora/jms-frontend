@@ -62,7 +62,6 @@ export class ReviewerViewJournalComponent implements OnInit {
         },
         (error) => {
             console.error(error);
-            // Hadle error
         }
       );
     }
@@ -87,7 +86,7 @@ export class ReviewerViewJournalComponent implements OnInit {
 
   // Check if the click is inside the dropdown toggle button
   if (target.matches('.dropdown-toggle')) {
-    this.toggleDropdown(); // Toggle the dropdown
+    this.toggleDropdown();
   } else {
     // Check if the click is outside the dropdown
     const dropdownContainer = target.closest('.dropdown');
@@ -161,33 +160,19 @@ markNotificationAsRead(notification: any) {
       return;
     }
   
-    // Assuming you have the journal ID stored in this.journalId
     if (!this.journalId) {
       console.error('Journal ID not found');
       return;
     }
     
-
-  //   // Check if feedback has already been submitted by the reviewer
-  // if (this.journal && this.journal.reviewComments.some((comment: any) => String(comment.reviewer) === String(sessionStorage.getItem('userId')))) {
-  //   // Show Material Snackbar message
-  //   this.snackBar.open('Feedback has already been submitted by this reviewer', 'Close', {
-  //     duration: 3000, // Snackbar duration in milliseconds
-  //     verticalPosition: 'top' // Position the Snackbar at the top of the screen
-  //   });
-  //   return; // Exit the method
-  // }
-  
     // Call the service method to submit feedback
     this.journalService.submitFeedback(this.journalId, this.feedback, this.selectedChoice, userId)
       .subscribe(
         (response) => {
           console.log('Feedback submitted successfully:', response);
-          // Optionally, you can update the UI or perform any other action upon successful submission
         },
         (error) => {
           console.error('Error submitting feedback:', error);
-          // Handle error scenario, such as displaying an error message to the user
         }
       );
   }
@@ -203,12 +188,11 @@ markNotificationAsRead(notification: any) {
   }
 
   openRubric() {
-    // Assuming you have a route for viewing rubrics and passing the rubric ID as a parameter
     if (this.journal && this.journal.rubricId) {
       const rubricId = this.journal.rubricId;
       window.open(`/view-rubric/${rubricId}`, '_blank'); // Open rubric in a new tab
     } else {
-      console.log('Rubric not found for this journal.'); // Handle case where rubric is not assigned
+      console.log('Rubric not found for this journal.');
     }
   }
 

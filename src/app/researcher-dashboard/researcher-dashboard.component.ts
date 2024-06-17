@@ -15,7 +15,7 @@ export class ResearcherDashboardComponent {
   unreadNotifications: any[] = [];
   showNotifDropdown: boolean = false;
   isDropdownOpen = false;
-  totalSubmittedJournals: number = 0; // Variable to store the total submitted journals
+  totalSubmittedJournals: number = 0; 
   totalPublishedJournals: number = 0;
   totalRevisionJournals: number = 0;
   totalRejectedJournals: number = 0;
@@ -37,7 +37,7 @@ export class ResearcherDashboardComponent {
   fetchTotalSubmittedJournals() {
     const userId = sessionStorage.getItem('userId'); // Get the user ID from session storage
     if (userId) {
-      // Make an HTTP GET request to fetch the user's submitted journals
+      // Fetch the user's submitted journals
       this.http.get<any[]>(`https://jms-backend-testing.vercel.app/user/${userId}/journals`).subscribe(
         (data) => {
           this.totalSubmittedJournals = data.length;
@@ -47,7 +47,6 @@ export class ResearcherDashboardComponent {
         },
         (error) => {
           console.error(error);
-          // Handle error
         }
       );
     }
@@ -78,7 +77,6 @@ export class ResearcherDashboardComponent {
         },
         (error) => {
           console.error(error);
-          // Handle error
         }
       );
     }
@@ -90,7 +88,7 @@ export class ResearcherDashboardComponent {
 
       // Check if the click is inside the dropdown toggle button
       if (target.matches('.dropdown-toggle')) {
-        this.toggleDropdown(); // Toggle the dropdown
+        this.toggleDropdown(); 
       } else {
         // Check if the click is outside the dropdown
         const dropdownContainer = target.closest('.dropdown');

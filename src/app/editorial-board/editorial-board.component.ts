@@ -30,7 +30,7 @@ export class EditorialBoardComponent implements OnInit {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     this.userRole = sessionStorage.getItem('userRole') || '';
 
-    this.isLoggedIn = isLoggedIn === 'true'; // Convert string to boolean
+    this.isLoggedIn = isLoggedIn === 'true'; 
     this.fetchAdmins();
     this.fetchReviewers();
   }
@@ -72,7 +72,7 @@ export class EditorialBoardComponent implements OnInit {
 
     // Check if the click is inside the dropdown toggle button
     if (target.matches('.dropdown-toggle')) {
-      this.toggleDropdown(); // Toggle the dropdown
+      this.toggleDropdown(); 
     } else {
       // Check if the click is outside the dropdown
       const dropdownContainer = target.closest('.dropdown');

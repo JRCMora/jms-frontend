@@ -35,7 +35,7 @@ export class PublicationComponent {
     const isLoggedIn = sessionStorage.getItem('isLoggedIn');
     this.userRole = sessionStorage.getItem('userRole') || '';
 
-    this.isLoggedIn = isLoggedIn === 'true'; // Convert string to boolean
+    this.isLoggedIn = isLoggedIn === 'true';
     this.fetchPublishedJournals();
   }
 
@@ -47,7 +47,6 @@ export class PublicationComponent {
       },
       (error) => {
         console.error(error);
-        // Handle error
       }
     );
   }
@@ -58,7 +57,7 @@ export class PublicationComponent {
 
     // Check if the click is inside the dropdown toggle button
     if (target.matches('.dropdown-toggle')) {
-      this.toggleDropdown(); // Toggle the dropdown
+      this.toggleDropdown();
     } else {
       // Check if the click is outside the dropdown
       const dropdownContainer = target.closest('.dropdown');
@@ -110,7 +109,7 @@ export class PublicationComponent {
 
   getPageNumbers(): number[] {
     const totalPages = Math.ceil(this.filteredJournals.length / this.itemsPerPage);
-    const visiblePages = Math.min(totalPages, 3); // Maximum 5 pages shown
+    const visiblePages = Math.min(totalPages, 3);
     const startPage = Math.max(1, this.currentPage - Math.floor(visiblePages / 2));
     const endPage = Math.min(totalPages, startPage + visiblePages - 1);
   

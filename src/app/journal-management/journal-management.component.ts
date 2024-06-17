@@ -22,8 +22,8 @@ export class JournalManagementComponent {
   currentPage = 1;
   itemsPerPage = 5;
   totalPages: number = 0;
-  sortDirection: string = 'asc'; // Default sorting direction
-  sortColumn: string = ''; // Default sorting column
+  sortDirection: string = 'asc'; 
+  sortColumn: string = ''; 
 
   constructor(private authService: AuthService,
     private router: Router,
@@ -65,7 +65,7 @@ ngOnInit(): void {
     if (page === 'last') {
       // Load journals first and then calculate the last page
       this.loadJournals(() => {
-        this.calculateTotalPages(); // Calculate the total pages
+        this.calculateTotalPages();
         this.currentPage = this.totalPages; 
         // Navigate to the last page if the current page is greater than total pages
         if (this.currentPage > this.totalPages) {
@@ -90,7 +90,6 @@ loadReviewers(): void {
     },
     (error) => {
       console.error(error);
-      // Handle error
     }
   );
 }
@@ -131,7 +130,6 @@ deleteJournal(journalId: string) {
       (error) => {
         console.error("Error deleting journal:", error);
         this.snackBar.open('Delete failed!', 'Close', { duration: 3000, verticalPosition: 'top'});
-        // Handle error
       }
     );
   }
@@ -141,15 +139,14 @@ loadJournals(callback: () => void = () => {}): void {
   this.journalService.getJournals().subscribe(
     (data) => {
       this.journals = data.map((journal, index) => ({ ...journal, id: index + 1 }));
-      this.loadReviewers(); // Call the method to load reviewer names
+      this.loadReviewers(); 
       this.filteredJournals = [...this.journals];
       this.calculateTotalPages();
-      callback(); // Execute the callback after loading journals
+      callback();
     },
     (error) => {
       console.error(error);
       this.snackBar.open('Assign failed!', 'Close', { duration: 3000, verticalPosition: 'top' });
-      // Handle error
     }
   );
 }
@@ -157,7 +154,7 @@ loadJournals(callback: () => void = () => {}): void {
 
 filterJournals() {
   if (!this.searchQuery.trim()) {
-    this.currentPage = 1; // Reset pagination to the first page
+    this.currentPage = 1; 
     this.filteredJournals = [...this.journals];
   } else {
     const searchTerm = this.searchQuery.toLowerCase().trim().replace(/\s+/g, ' '); // Replace consecutive spaces with a single space
@@ -170,7 +167,7 @@ filterJournals() {
         (journal.reviewerNames && journal.reviewerNames.some((reviewerName: string) => reviewerName.toLowerCase().includes(searchTerm)))
       );
     });
-    this.currentPage = 1; // Reset pagination to the first page when a new search query is entered
+    this.currentPage = 1;
   }
 }
 
@@ -178,7 +175,7 @@ filterJournals() {
 publishJournal(journal: any) {
   const journalId = journal._id;
   const currentDate = new Date().toISOString(); // Get the current date in ISO format
-  const updatedJournalData = { status: 'Published', publicationDate: currentDate }; // New data to update
+  const updatedJournalData = { status: 'Published', publicationDate: currentDate };
 
   this.journalService.publishJournal(journalId, updatedJournalData).subscribe(
     () => {
@@ -204,7 +201,6 @@ publishJournal(journal: any) {
     (error) => {
       console.error('Error publishing journal:', error);
       this.snackBar.open('Failed to publish journal!', 'Close', { duration: 3000, verticalPosition: 'top' });
-      // Handle error
     }
   );
 }
@@ -252,7 +248,7 @@ assignReviewer(journal: any) {
 
   getPageNumbers(): number[] {
     const totalPages = Math.ceil(this.filteredJournals.length / this.itemsPerPage);
-    const visiblePages = Math.min(totalPages, 5); // Maximum 5 pages shown
+    const visiblePages = Math.min(totalPages, 5);
     const startPage = Math.max(1, this.currentPage - Math.floor(visiblePages / 2));
     const endPage = Math.min(totalPages, startPage + visiblePages - 1);
 

@@ -50,12 +50,10 @@ h1 {
     width: 100%;
   }
   
-  /* Adjusted styles to show the menu when the checkbox is checked */
   .dropdown-toggle:checked + .dropdown-label + .dropdown-menu {
     display: block;
   }
   
-  /* Hide checkbox visually but keep it accessible for screen readers */
   .dropdown-toggle {
     position: absolute;
     opacity: 0;
@@ -101,9 +99,9 @@ h1 {
     padding: 5px;
     background-color: #e58d05;
     border-radius: 10px;
-    color: #fff; /* Set text color to white */
-    text-decoration: none; /* Remove underline */
-    margin-right: 1rem; /* Match spacing with other elements */
+    color: #fff; 
+    text-decoration: none; 
+    margin-right: 1rem; 
 }
 
 .dash:hover {
@@ -137,7 +135,7 @@ h1 {
 }
 
 .header{
-    text-align: center; /* Center the header */
+    text-align: center; 
     font-size: 30px;
 }
 
@@ -153,7 +151,7 @@ h1 {
 .journal-box {
     border: 1px solid #ccc;
     padding: 20px;
-    width: 800px; /* Box width */
+    width: 800px;
 }
 
 .journal-box button {

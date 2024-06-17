@@ -20,8 +20,8 @@ export class ResearcherJournalStatusComponent {
   searchQuery: string = '';
   currentPage = 1;
   itemsPerPage = 5;
-  sortDirection: string = 'asc'; // Default sorting direction
-sortColumn: string = ''; // Default sorting column
+  sortDirection: string = 'asc'; 
+sortColumn: string = ''; 
 
 
 
@@ -41,12 +41,10 @@ sortColumn: string = ''; // Default sorting column
         },
         (error) => {
           console.error(error);
-          // Handle error
         }
       );
     } else {
       console.error('User ID not found in local storage');
-      // Handle case where user ID is not found
     }
   }
 
@@ -57,7 +55,7 @@ sortColumn: string = ''; // Default sorting column
 
     // Check if the click is inside the dropdown toggle button
     if (target.matches('.dropdown-toggle')) {
-      this.toggleDropdown(); // Toggle the dropdown
+      this.toggleDropdown();
     } else {
       // Check if the click is outside the dropdown
       const dropdownContainer = target.closest('.dropdown');
@@ -69,17 +67,17 @@ sortColumn: string = ''; // Default sorting column
 
   filterJournals() {
     if (!this.searchQuery.trim()) {
-      this.currentPage = 1; // Reset pagination to the first page
+      this.currentPage = 1; 
       this.filteredJournals = [...this.journals];
     } else {
-      const searchTerm = this.searchQuery.toLowerCase().trim().replace(/\s+/g, ' '); // Replace consecutive spaces with a single space
+      const searchTerm = this.searchQuery.toLowerCase().trim().replace(/\s+/g, ' '); 
       this.filteredJournals = this.journals.filter(journal => {
         return (
           journal.journalTitle.toLowerCase().includes(searchTerm) ||
           journal.status.toLowerCase().includes(searchTerm)
         );
       });
-      this.currentPage = 1; // Reset pagination to the first page when a new search query is entered
+      this.currentPage = 1; 
     }
   }
 
@@ -165,7 +163,7 @@ sortColumn: string = ''; // Default sorting column
   
     getPageNumbers(): number[] {
       const totalPages = Math.ceil(this.filteredJournals.length / this.itemsPerPage);
-      const visiblePages = Math.min(totalPages, 5); // Maximum 5 pages shown
+      const visiblePages = Math.min(totalPages, 5); 
       const startPage = Math.max(1, this.currentPage - Math.floor(visiblePages / 2));
       const endPage = Math.min(totalPages, startPage + visiblePages - 1);
     

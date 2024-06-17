@@ -17,7 +17,6 @@ export class FPassComponent {
     this.userService.forgotPassword(this.email).subscribe(
       (response) => {
         console.log('Reset password email sent');
-        // Optionally, you can show a success message to the user
         this.snackBar.open('Reset password email sent.', 'Close', { duration: 3000, verticalPosition: 'top' });
       },
       (error) => {

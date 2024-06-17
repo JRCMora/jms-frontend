@@ -50,27 +50,27 @@ button:hover i.fa-trash-can {
 .table-container {
   padding-bottom: 50px;
   padding-left: 20px;
-  margin-top: 20px; /* Adjust margin as needed */
+  margin-top: 20px; 
   margin-left: 50px;
 }
 
 .table-container table {
   border-collapse: collapse;
-  width: 100%; /* Adjust width as needed */
+  width: 100%;
 }
 
 .table-container th,
 .table-container td {
-  border: 5px solid #d9d9d9; /* Border style */
-  padding: 8px; /* Padding for cells */
+  border: 5px solid #d9d9d9; 
+  padding: 8px; 
   text-align: left;
 }
 
 .table-container th {
-  background-color: #ffbd59; /* Background color for header */
+  background-color: #ffbd59; 
 }
 
-/* Table hover effect */
+
 .table-container tr:hover {
   background-color: #f2f2f2;
 }
@@ -94,7 +94,7 @@ button:hover i.fa-trash-can {
 
 .searchBar {
   margin-left: 530px;
-  width: 300px; /* Width of search bar */
+  width: 300px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 10px;

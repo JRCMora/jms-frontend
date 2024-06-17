@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   isUserAdmin(): boolean {
-    return this.currentUserRole === 'admin'; // Adjust this based on your implementation
+    return this.currentUserRole === 'admin';
   }
 
   setIsAuthenticated(status: boolean): void {
@@ -55,7 +55,7 @@ export class AuthService {
     return sessionStorage.getItem('userRole') || '';
   }
 
-  // Method to set the current user's role
+  // Set the current user's role
   setCurrentUserRole(role: string): void {
     this.currentUserRole = role;
   }

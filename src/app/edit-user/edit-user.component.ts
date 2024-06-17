@@ -41,12 +41,10 @@ export class EditUserComponent implements OnInit {
     this.userService.updateUser(this.user).subscribe(
       (updatedUser: any) => {
         this.snackBar.open('Changes saved successfully', 'Close', { duration: 3000, verticalPosition: 'top'});
-        // Optionally, navigate to another page or handle success
       },
       (error: any) => {
         console.error('Error saving changes:', error);
         this.snackBar.open('Error saving changes!', 'Close', { duration: 3000, verticalPosition: 'top'});
-        // Handle error
       }
     );
   }

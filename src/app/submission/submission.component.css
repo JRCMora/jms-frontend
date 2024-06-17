@@ -40,11 +40,11 @@ body {
 
 .badge {
   position: absolute;
-  background-color: #ff5a00; /* Badge background color */
-  color: #fff; /* Badge text color */
+  background-color: #ff5a00;
+  color: #fff; 
   font-size: 0.8rem;
   padding: 0.2rem 0.5rem;
-  border-radius: 50%; /* Make it a circle */
+  border-radius: 50%;
 }
 
 .dropdown-label {
@@ -89,12 +89,10 @@ body {
   width: 100%;
 }
 
-/* Adjusted styles to show the menu when the checkbox is checked */
 .dropdown-toggle:checked + .dropdown-label + .dropdown-menu {
   display: block;
 }
 
-/* Hide checkbox visually but keep it accessible for screen readers */
 .dropdown-toggle {
   position: absolute;
   opacity: 0;
@@ -185,7 +183,7 @@ hr {
 }
 
 #navbarV a.active {
-  color: #ff5a00; /* Set the color for the active link */
+  color: #ff5a00;
   background-color: #fff;
 }
 
@@ -242,7 +240,7 @@ li a {
   padding-bottom: 50px;
   padding-left: 250px;
   display: flex;
-  flex-direction: column; /* Ensure a vertical layout */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -260,7 +258,7 @@ form {
 
 #abstract {
   width: 100%;
-  max-width: 740px; /* Max-width to limit the width on larger screens */
+  max-width: 740px;
 }
 
 textarea {

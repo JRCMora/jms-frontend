@@ -56,7 +56,6 @@ form button:hover {
   background-color: #ffbd59;
 }
 
-/*Border to mat-tab-group */
 mat-tab-group {
   background-color: #f7be6d;
   border: 1px solid #ccc;

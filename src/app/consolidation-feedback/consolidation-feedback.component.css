@@ -50,12 +50,10 @@ body {
   width: 100%;
 }
 
-/* Adjusted styles to show the menu when the checkbox is checked */
 .dropdown-toggle:checked + .dropdown-label + .dropdown-menu {
   display: block;
 }
 
-/* Hide checkbox visually but keep it accessible for screen readers */
 .dropdown-toggle {
   position: absolute;
   opacity: 0;
@@ -136,7 +134,7 @@ body {
 }
 
 #navbarV a.active {
-  color: #ff5a00; /* Set the color for the active link */
+  color: #ff5a00; 
   background-color: #fff;
 }
 
@@ -189,17 +187,10 @@ li a {
   }
 }
 
-/* #container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 8rem;
-} */
-
 #container {
   padding-top: 6rem;
   display: flex;
-  flex-direction: column; /* Ensure a vertical layout */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -226,7 +217,7 @@ hr{
 #textarea {
   margin-top: 10px;
   width: 80%;
-  max-width: 600px; /* Max-width to limit the width on larger screens */
+  max-width: 600px; 
 }
 
 textarea {
@@ -261,11 +252,11 @@ textarea {
 }
 
 .choice input[type="radio"] {
-  opacity: 0; /* Hide the actual radio input */
+  opacity: 0;
 }
 
 .choice input[type="radio"]:checked + .custom-radio {
-  background-color: #fff; /* Change background color when checked */
+  background-color: #fff;
 }
 
 .choice:hover .custom-radio {
@@ -274,7 +265,7 @@ textarea {
 
 .custom-radio::after {
   content: '';
-  width: 10px; /* Size of the center dot */
+  width: 10px; 
   height: 10px;
   background-color: #ff5a00;
   border-radius: 50%;
@@ -286,7 +277,7 @@ textarea {
 }
 
 .choice input[type="radio"]:checked + .custom-radio::after {
-  display: block; /* Show the center dot when the radio is checked */
+  display: block; 
 }
 
 .feedback {

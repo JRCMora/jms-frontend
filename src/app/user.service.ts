@@ -18,7 +18,7 @@ export class UserService {
     // Modify the URL to include the role parameter
     return this.http.get<any[]>(`${this.apiUrl}/users?role=${role}`);
   }
-  // Method to fetch reviewer data for multiple reviewer IDs
+  // Fetch reviewer data for multiple reviewer IDs
   getReviewersByIds(reviewerIds: string[]): Observable<any[]> {
     return this.http.post<any[]>(`${this.apiUrl}/user/reviewers`, { reviewerIds });
   }
@@ -35,7 +35,6 @@ export class UserService {
   }
 
   changePassword(userId: string, currentPassword: string, newPassword: string): Observable<any> {
-    // Assuming your backend API endpoint for changing password is '/change-password'
     return this.http.post<any>(`${this.apiUrl}/users/${userId}/change-password`, { currentPassword, newPassword });
   }
 
@@ -43,7 +42,6 @@ export class UserService {
     return this.http.post<any>(`${this.apiUrl}/forgot-password`, { email });
   }
 
-  // Define the resetPassword method
   resetPassword(resetToken: string, newPassword: string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/reset-password/${resetToken}`, { newPassword });
   }
@@ -51,7 +49,7 @@ export class UserService {
   deleteUser(userId: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/users/${userId}`);
   }
-    // Method to update user information
+    // Update user information
   updateUser(user: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/users/${user._id}`, user);
   }

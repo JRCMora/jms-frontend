@@ -54,6 +54,6 @@ export class VerifyEmailResultComponent {
   }
 
   closeAlert(): void {
-    // Implement logic to close alert
+    
   }
 }

@@ -45,7 +45,6 @@ sortColumn: string = ''; // Default sorting column
         },
         (error) => {
           console.error(error);
-          // Handle error
         }
       );
       
@@ -57,28 +56,26 @@ sortColumn: string = ''; // Default sorting column
         },
         (error) => {
             console.error(error);
-            // Hadle error
         }
       );
     } else {
-      // Handle missing user ID
       console.error('User ID not found in localStorage');
     }
   }
 
   filterJournals() {
     if (!this.searchQuery.trim()) {
-      this.currentPage = 1; // Reset pagination to the first page
+      this.currentPage = 1; 
       this.filteredJournals = [...this.journals];
     } else {
-      const searchTerm = this.searchQuery.toLowerCase().trim().replace(/\s+/g, ' '); // Replace consecutive spaces with a single space
+      const searchTerm = this.searchQuery.toLowerCase().trim().replace(/\s+/g, ' ');
       this.filteredJournals = this.journals.filter(journal => {
         return (
           journal.journalTitle.toLowerCase().includes(searchTerm) ||
           journal.status.toLowerCase().includes(searchTerm)
         );
       });
-      this.currentPage = 1; // Reset pagination to the first page when a new search query is entered
+      this.currentPage = 1; 
     }
   }
 

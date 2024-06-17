@@ -27,7 +27,6 @@ export class PublicationViewJournalComponent implements OnInit {
       }
     });
   }
-  
 
   getJournalDetails(journalId: string): void {
     this.journalService.getJournalById(journalId).subscribe(
