@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <h1>Create New Rubric</h1>
+    <form (ngSubmit)="saveRubric()">
+        <div class="form-group">
+            <label for="rubric-name">Rubric Name<span class="text-danger">*</span></label>
+            <input id="rubric-name" type="text" class="form-control" [(ngModel)]="rubric.name" name="rubricName" required>
+        </div>
+        <div class="form-group">
+            <label for="rubric-description">Rubric Description</label>
+            <textarea id="rubric-description" class="form-control" [(ngModel)]="rubric.description" name="rubricDescription"></textarea>
+        </div>
+  
+        <!-- Rubric Components -->
+        <div *ngFor="let component of rubric.components; let i = index" class="form-group">
+            <label for="componentName{{i}}">Criteria Name<span class="text-danger">*</span></label>
+            <input id="componentName{{i}}" type="text" class="form-control" [(ngModel)]="component.name" name="componentName{{i}}" required>
+            <!-- Remove Criteria button -->
+            <button type="button" class="removeCriteriabtn" (click)="removeComponent(i)">Remove Criteria</button>
+            
+            <!-- Component Levels (Scores) -->
+            <div *ngFor="let level of component.levels; let j = index" class="form-group">
+                <label for="levelLabel{{i}}-{{j}}">Score Label<span class="text-danger">*</span></label>
+                <input id="levelLabel{{i}}-{{j}}" type="text" class="form-control" [(ngModel)]="level.label" name="levelLabel{{i}}-{{j}}" required>
+  
+                <label for="levelScore{{i}}-{{j}}">Score Value<span class="text-danger">*</span></label>
+                <input id="levelScore{{i}}-{{j}}" type="number" class="form-control" [(ngModel)]="level.score" name="levelScore{{i}}-{{j}}" required>
+
+                <label for="levelDescription{{i}}-{{j}}">Score Description</label>
+                <textarea id="levelDescription{{i}}-{{j}}" class="form-control" [(ngModel)]="level.description" name="levelDescription{{i}}-{{j}}"></textarea>
+  
+                <!-- Buttons for removing levels -->
+                <button type="button" class="removeScorebtn" (click)="removeScore(i, j)">Remove Score</button>
+            </div>
+  
+            <!-- Button for adding levels -->
+            <button type="button" class="addScorebtn" (click)="addScore(i)">Add Score</button>
+        </div>
+  
+        <!-- Button for adding components -->
+        <button type="button" class="addCriteriabtn" (click)="addComponent()">Add Criteria</button>
+        <br/>
+        <button type="submit" class="savebtn">Save Rubric</button>
+    </form>
+  </div>
+  

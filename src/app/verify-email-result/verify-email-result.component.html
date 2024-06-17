@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngIf="verificationResult.success" class="alert alert-success">
+      <span class="closebtn" (click)="closeAlert()"></span> 
+      <strong class="success">Success!</strong> {{ verificationResult.message }}
+    </div>
+    <div *ngIf="!verificationResult.success" class="alert alert-danger">
+      <span class="closebtn" (click)="closeAlert()"></span> 
+      <strong class="error">Error!</strong> {{ verificationResult.message }}
+    </div>
+    <button *ngIf="verificationResult.success"(click)="returnToLogin()">Return to Login</button>
+    <button *ngIf="!verificationResult.success" (click)="resendVerificationEmail()">Resend Verification Email</button>
+  </div>
+  

@@ -1,0 +1,24 @@
+
+<body>
+    <div class="container">
+        <h1>Sign In</h1>
+        <form (submit)="login()">
+            <label for="email">Email: </label>
+            <input type="text" name="email" [(ngModel)]="email" placeholder="Enter your email" required>
+            <label for="password">Password: </label>
+            <input type="{{ passwordVisible ? 'text' : 'password' }}" name="password" [(ngModel)]="password" placeholder="Enter your password" required>
+            <div class="password-toggle" (click)="togglePasswordVisibility()">
+                <i class="fa-regular fa-eye" *ngIf="!passwordVisible"></i>
+                <i class="fa-regular fa-eye-slash" *ngIf="passwordVisible"></i>
+            </div>     
+            <div class="check">
+                <input type="checkbox" name="remember" [(ngModel)]="rememberMe" >
+                <label for="remember">Remember Me</label>
+            </div>
+            <a routerLink="/forgot-password">Forgot Password?</a>
+            <input type="submit" value="Login">
+            <p>or</p>
+            <a routerLink="/register">Create an Account </a>
+        </form>
+    </div>
+</body>  

@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<div id="container">
+  <mat-tab-group>
+    <mat-tab label="Account Information">
+      <div *ngIf="user" class="account">
+        <form>
+          <h1>Account Information</h1>
+          <label for="firstName">First Name:</label>
+          <mat-form-field class="account-input">
+            <input matInput type="text" id="firstName" [(ngModel)]="user.firstName" name="firstName" disabled>
+          </mat-form-field>
+
+          <label for="lastName">Last Name:</label>
+          <mat-form-field class="account-input">
+            <input matInput type="text" id="lastName" [(ngModel)]="user.lastName" name="lastName" disabled>
+          </mat-form-field>
+
+          <label for="email">Email:</label>
+          <mat-form-field class="account-input">
+            <input matInput type="email" id="email" [(ngModel)]="user.email" name="email" disabled>
+          </mat-form-field>
+
+          <label for="role">Role:</label>
+          <mat-form-field class="account-input">
+            <mat-select [(ngModel)]="user.role" name="role">
+              <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="saveChanges()">Save Changes</button>
+        </form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

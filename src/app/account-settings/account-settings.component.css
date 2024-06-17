@@ -1,0 +1,65 @@
+#container {
+  position: relative;
+  left: 40%;
+  max-width: 550px;
+  padding-top: 10rem;
+  text-align: center;
+}
+
+.background {
+  background-image: url(../../assets/sjh-lop.png);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  height: auto;
+}
+
+.account h1 {
+  padding: 9px;
+  font-size: 30px;
+}
+
+form .account-input {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.pass h1 {
+  padding: 7px;
+  font-size: 30px;
+}
+
+form h1 {
+  text-align: center;
+}
+
+form {
+  text-align: left;
+  border-radius: 4px;
+  background-color: #fecb98;
+  padding: 50px;
+}
+
+form .password {
+  width: 100%;
+}
+
+form button {
+  width: 150px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #f7a400;
+  color: #fff;
+}
+
+form button:hover {
+  background-color: #ffbd59;
+}
+
+/*Border to mat-tab-group */
+mat-tab-group {
+  background-color: #f7be6d;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 550px;
+}

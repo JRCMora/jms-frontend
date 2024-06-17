@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+  
+<div id="container">
+    
+  <div class="table-container">
+    <input type="text" placeholder="Search..." class="searchBar" [(ngModel)]="searchQuery" (input)="filterUsers()">
+    
+    
+    <table>
+      <thead>
+        <tr>
+          <th (click)="sortUsers('id')">
+            ID
+            <span *ngIf="sortColumn === 'id' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'id' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <th (click)="sortUsers('firstName')">
+            Reviewer Name
+            <span *ngIf="sortColumn === 'firstName' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'firstName' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <th (click)="sortUsers('assignedJournals')">
+            Assigned Journal(s)
+            <span *ngIf="sortColumn === 'assignedJournals' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'assignedJournals' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <th (click)="sortUsers('status')">
+            Status
+            <span *ngIf="sortColumn === 'status' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'status' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      
+      
+      <tbody>
+        <tr *ngFor="let user of filteredUsers.slice(startIndex, endIndex + 1)">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstName }} {{ user.lastName }}</td>
+          <td>
+            <!-- Display assigned journal titles if available -->
+            <ng-container *ngIf="user.assignedJournals && user.assignedJournals.length > 0">
+              <div *ngFor="let journalTitle of user.assignedJournals">{{ journalTitle }}</div>
+            </ng-container>
+            <ng-container *ngIf="!user.assignedJournals || user.assignedJournals.length === 0">
+              No assigned journals
+            </ng-container>
+          </td>
+          <td>{{ user.status }}</td>
+          <td class="actionButton">
+            <div class="dropdown">
+              <button class="dropbtn">Options</button>
+              <div class="dropdown-content">
+                <button (click)="deleteUser(user._id)">
+                  <i class="fa-solid fa-trash-can"></i> Delete
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <span> 
+        <!-- Iterate over page numbers and add click handler -->
+        <ng-container *ngFor="let pageNumber of getPageNumbers()">
+          <button (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</button>
+        </ng-container>
+      </span>
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="endIndex === filteredUsers.length - 1">Next</button>
+    </div>
+  </div>
+</div>

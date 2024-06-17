@@ -1,0 +1,272 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dropdown-toggle {
+    display: none;
+  }
+  
+  .dropdown-label {
+    cursor: pointer;
+    display: block;
+  }
+  
+  .dropdown-menu {
+    color: #fff;
+    width: 200px;
+    display: none;
+    position: absolute;
+    background-color: #c8691c;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-menu a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .dropdown-menu button{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .dropdown-menu a:hover {
+    padding: 10px;
+    color: #ff5a00;
+    background-color: #ffbd59;
+  }
+  
+  .dropdown-menu button:hover {
+    padding: 10px;
+    color: #fff;
+    background-color: #ff5a00;
+  }
+  
+  .dropdown-item {
+    width: 100%;
+  }
+  
+  /* Adjusted styles to show the menu when the checkbox is checked */
+  .dropdown-toggle:checked + .dropdown-label + .dropdown-menu {
+    display: block;
+  }
+  
+  /* Hide checkbox visually but keep it accessible for screen readers */
+  .dropdown-toggle {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  
+  #navbarH {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #424242;
+    margin: auto;
+    height: 6rem;
+    padding-right: 8rem;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    justify-content: flex-end;
+  }
+  
+  .nav-icon{
+    color: #ff5a00;
+    font-size: 2rem;
+    padding-left: 0.8rem;
+  }
+  
+  .nav-icon:hover {
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+  
+  .rightnavText li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  
+  #dashboardLogo {
+    display: flex;
+    width: 8rem;
+    height: 8rem;
+    padding: 1rem;
+  }
+  
+  #dashboardIcons {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+  }
+  
+  #navbarV {
+    background-color: rgba(254, 152, 0);
+    height: 100vh;
+    position: fixed;
+    width: 8rem;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: bottom;
+    z-index: 2000;
+  }
+  
+  #navbarV a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #navbarV a:hover,
+  #navbarV a:focus {
+    color: #ff5a00;
+    background-color: #fff;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  #navbarV a.active {
+    color: #ff5a00; /* Set the color for the active link */
+    background-color: #fff;
+  }
+  
+  #navbarV ul {
+    padding: 0px;
+    list-style-type: none;
+  }
+  
+  #navbarV li {
+    margin-bottom: 1rem;
+  }
+  
+  .leftnavText li {
+    margin-bottom: 2rem;
+  }
+  
+  
+  ul {
+    list-style-type: none;
+    margin: 0px 1px 0px 1px;
+    padding: 0px;
+  }
+  
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1rem 1rem 0rem 1rem;
+    text-decoration: none;
+  }
+  
+  @media screen and (max-width: 400px) {
+    nav#navbarH {
+      float: none;
+      display: inline-block;
+      width: 100%;
+    }
+  
+    ul {
+      float: none;
+      display: block;
+      width: 100%;
+    }
+  
+    li {
+      float: none;
+      display: block;
+      width: 100%;
+    }
+  }
+  
+  .box .icon{
+    margin-right: 10px;
+    font-size: 5rem;
+    color: #78380c;
+  }
+  
+  
+  #container {
+    position: relative;
+    left: 40%;
+    max-width: 550px;
+    padding-top: 8rem;
+    text-align: center;
+  }
+    
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    font-size: 18px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fecb98;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; /* Optional: Add rounded corners to the form */
+  }
+  
+  select {
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-size: 18px;
+  }
+  
+  input[type="text"],
+  select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    background-color: rgba(254, 152, 0);
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #ff5a00;
+  }

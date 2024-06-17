@@ -1,0 +1,48 @@
+<div *ngIf="!isLoggedIn">
+    <nav id="navbarH">
+        <h1></h1>
+        <ul>
+            <button id="login"><a href="/login">Log in</a></button>
+            <button id="register"><a href="/register">Sign Up</a></button>
+        </ul>
+    </nav>    
+</div>
+
+<div *ngIf="isLoggedIn">
+    <nav id="navbarH">
+        <a [routerLink]="getDashboardLink()" class="dash">Dashboard</a>
+        <ul class="rightnavText">
+            <li class="dropdown" (click)="toggleDropdown()">
+                <input type="checkbox" id="userDropdownToggle" class="dropdown-toggle" [ngModel]="isDropdownOpen">
+                  <label for="userDropdownToggle" class="dropdown-label">
+                    <span class="nav-icon">
+                      <i class="fa-solid fa-user-gear"></i>
+                    </span>
+                  </label>
+                <div class="dropdown-menu">
+                  <a routerLink="/account-settings"><i class="fa-solid fa-gear"></i> Settings</a>
+                  <button class="dropdown-item" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div> 
+
+<div class="admins">
+    <h2>Admins</h2>
+    <div class="user-boxes">
+      <div *ngFor="let admin of admins" class="user-box">
+        {{ admin.firstName }} {{ admin.lastName }}
+      </div>
+    </div>
+  </div>
+  
+  <div class="reviewers">
+    <h2>Reviewers</h2>
+    <div class="user-boxes">
+      <div *ngFor="let reviewer of reviewers" class="user-box">
+        {{ reviewer.firstName }} {{ reviewer.lastName }}
+      </div> 
+    </div>
+  </div>
+  

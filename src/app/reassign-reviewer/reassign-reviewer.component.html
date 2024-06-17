@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+
+<div id="container">
+  <h1>Reassign Reviewer</h1>
+  <form (submit)="assignReviewer()">
+    <label for="journalTitle">Journal Title:</label>
+    <input type="text" name="journalTitle" [(ngModel)]="journalTitle" readonly>
+    <label for="reviewer1">Select Reviewer 1:</label>
+<select name="reviewer1" [(ngModel)]="reviewer1" required>
+  <option value="{{ currentReviewer1._id }}" [selected]="currentReviewer1._id">{{ currentReviewer1.firstName }} {{ currentReviewer1.lastName }}</option>
+  <option *ngFor="let reviewer of filteredReviewers(reviewer2, reviewer3)" [value]="reviewer._id">{{ reviewer.firstName }} {{ reviewer.lastName }}</option>
+</select>
+
+<label for="reviewer2">Select Reviewer 2:</label>
+<select name="reviewer2" [(ngModel)]="reviewer2" required>
+  <option value="{{ currentReviewer2._id }}" [selected]="currentReviewer2._id">{{ currentReviewer2.firstName }} {{ currentReviewer2.lastName }}</option>
+  <option *ngFor="let reviewer of filteredReviewers(reviewer1, reviewer3)" [value]="reviewer._id">{{ reviewer.firstName }} {{ reviewer.lastName }}</option>
+</select>
+
+<label for="reviewer3">Select Reviewer 3:</label>
+<select name="reviewer3" [(ngModel)]="reviewer3" required>
+  <option value="{{ currentReviewer3._id }}" [selected]="currentReviewer3._id">{{ currentReviewer3.firstName }} {{currentReviewer3.lastName }}</option>
+  <option *ngFor="let reviewer of filteredReviewers(reviewer1, reviewer2)" [value]="reviewer._id">{{ reviewer.firstName }} {{ reviewer.lastName }}</option>
+</select>
+
+
+<label for="rubric">Select a Rubric:</label>
+<select name="rubric" [(ngModel)]="selectedRubric" required>
+  <option value="" disabled selected>Select a rubric</option>
+  <option *ngFor="let rubric of rubrics" [value]="rubric._id">{{ rubric.name }}</option>
+</select>
+
+    <input type="submit" value="Assign">
+  </form>
+</div>
+  

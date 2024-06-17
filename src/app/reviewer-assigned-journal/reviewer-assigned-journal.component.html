@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+
+<div class="containerBox">
+  <div class="table-container">
+
+      <input type="text" placeholder="Search..." class="searchBar" [(ngModel)]="searchQuery" (input)="filterJournals()">
+    
+    <table>
+      <thead>
+        <tr>
+          <th (click)="sortJournals('id')">
+            ID
+            <span *ngIf="sortColumn === 'id' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'id' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <th (click)="sortJournals('journalTitle')">
+            Journal Title
+            <span *ngIf="sortColumn === 'journalTitle' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'journalTitle' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <!-- Add sorting for other columns as needed -->          
+          <th (click)="sortJournals('authors')">
+            Author
+            <span *ngIf="sortColumn === 'authors' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'authors' && sortDirection === 'desc'">&#9650;</span>
+          </th>     
+          <th (click)="sortJournals('status')">
+            Status
+            <span *ngIf="sortColumn === 'status' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'status' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let journal of filteredJournals.slice(startIndex, endIndex + 1)">
+          <td>{{ journal.id }}</td>
+          <td>{{ journal.journalTitle }}</td>
+          <td>{{ journal.authors.join(', ') }}</td>
+          <td>{{ journal.status }}</td>
+          <td>
+            <button class="view" [disabled]="journal.status !== 'Under Review' && journal.status !== 'Under Review (Revision)'" (click)="viewJournal(journal._id)">View</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <span> 
+        <!-- Iterate over page numbers and add click handler -->
+        <ng-container *ngFor="let pageNumber of getPageNumbers()">
+          <button (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</button>
+        </ng-container>
+      </span>
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="endIndex === filteredJournals.length - 1">Next</button>
+    </div>
+  </div>
+</div>

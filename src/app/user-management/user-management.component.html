@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+
+<div id="container">
+  <div class="table-container">
+
+    <button class="createUser"><a href="/user-management/add-accounts">Add User</a></button>
+    <input type="text" placeholder="Search..." class="searchBar" [(ngModel)]="searchQuery" (input)="filterUsers()">
+    
+    <table>
+      <thead>
+        <tr>
+          <th (click)="sortUsers('id')">
+            ID
+            <span *ngIf="sortColumn === 'id' && sortDirection === 'asc'">&#9660;</span> <!-- Downward arrow for ascending -->
+            <span *ngIf="sortColumn === 'id' && sortDirection === 'desc'">&#9650;</span> <!-- Upward arrow for descending -->
+          </th>
+          <th (click)="sortUsers('firstName')">
+            Full Name
+            <span *ngIf="sortColumn === 'firstName' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'firstName' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <th (click)="sortUsers('email')">
+            Email
+            <span *ngIf="sortColumn === 'email' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'email' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <th (click)="sortUsers('role')">
+            Role
+            <span *ngIf="sortColumn === 'role' && sortDirection === 'asc'">&#9660;</span>
+            <span *ngIf="sortColumn === 'role' && sortDirection === 'desc'">&#9650;</span>
+          </th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers.slice(startIndex, endIndex + 1)">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstName }} {{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td class="actionButton">
+            <div class="dropdown">
+              <button class="dropbtn">Options</button>
+              <div class="dropdown-content">
+                <button (click)="editUser(user._id)">
+                  <i class="fa-solid fa-pen-to-square"></i> Edit
+                </button>
+                <button (click)="deleteUser(user._id)">
+                  <i class="fa-solid fa-trash-can"></i> Delete
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+      <span> 
+        <!-- Iterate over page numbers and add click handler -->
+        <ng-container *ngFor="let pageNumber of getPageNumbers()">
+          <button (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</button>
+        </ng-container>
+      </span>
+      <button (click)="onPageChange(currentPage + 1)" [disabled]="endIndex === filteredUsers.length - 1">Next</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<div class="background">
+  <div class="containerBox">
+    <div id="dashboardHeader">
+      <h1>Dashboard</h1>
+      <hr>
+    </div>
+      <div id="container">
+        <div class="box">
+
+          <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+          <span class="text">{{ totalSubmittedJournals }} </span>
+          <span class="text">Total Submitted Journals </span>
+  
+      </div> 
+      <div class="box">
+
+        <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+        <span class="text">{{ totalPublishedJournals }} </span>
+        <span class="text">Total Published Journals </span>
+
+    </div> 
+    <div class="box">
+
+      <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+      <span class="text">{{ totalRejectedJournals }} </span>
+      <span class="text">Total Rejected Journals </span>
+
+  </div> 
+  <div class="box">
+
+    <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+    <span class="text">{{ totalRevisionJournals }} </span>
+    <span class="text">Total Needs Revision Journals </span>
+
+</div> 
+<div class="box">
+  <p>Journal Status</p>
+  <hr>
+  <ngx-charts-pie-grid
+    [view]="[400, 300]"
+    [scheme]="colorScheme"
+    [results]="journalStatusData"
+  ></ngx-charts-pie-grid>
+</div>
+      </div>
+  </div>
+</div>

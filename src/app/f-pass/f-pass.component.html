@@ -1,0 +1,17 @@
+<body>
+  <div class="container">
+    <h2>Reset your password</h2>
+    <p>If the email exists, we'll email you instructions to reset your password.</p>
+    <br>
+    <form (ngSubmit)="submitEmail()">
+      <label for="email">Email:</label>
+      <input type="email" name="email" [(ngModel)]="email" placeholder="Enter your email" required>
+      <div class="button-container">
+        <button class="reset" type="submit">Reset Password</button>
+        <button class="return" (click)="returnToLogin()">Back to Login</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+  

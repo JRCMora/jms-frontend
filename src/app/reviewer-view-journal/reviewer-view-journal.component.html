@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+  <div id="container">
+    <div class="reviewContainer" *ngIf="journal">
+        <h2>Manuscript Title: {{ journal.journalTitle }}</h2>
+        <p>Author: {{ journal.authors.join(', ') }}</p>
+        <p>Abstract: {{ journal.abstract }}</p>
+        <a class="download" [href]="journal.downloadUrl" target="_blank"><i class="fa-solid fa-file-pdf"></i>Download</a>
+        <div id="textarea">
+          <textarea [value]="feedback" (input)="updateFeedback($event)" placeholder="Enter your feedback"></textarea>
+        </div>
+
+        <div class="choices">
+          <label class="choice">
+            <input type="radio" name="choice" value="approve" (click)="updateChoice('approve')">
+            <span class="custom-radio"></span>
+            Approve
+          </label>
+          <label class="choice">
+            <input type="radio" name="choice" value="needs revision" (click)="updateChoice('needs revision')">
+            <span class="custom-radio"></span>
+            Need Revision
+          </label>
+          <label class="choice">
+            <input type="radio" name="choice" value="reject" (click)="updateChoice('reject')">
+            <span class="custom-radio"></span>
+            Reject
+          </label>
+        </div>        
+        <label>Rubric: <button (click)="openRubric()" class="rubric">Open Rubric</button></label>
+        <div class="feedback">
+          <button (click)="submitFeedback()">Submit Feedback</button>
+        </div>
+    </div>
+  </div>
+  
+  

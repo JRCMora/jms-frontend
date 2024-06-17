@@ -1,0 +1,105 @@
+#dashboardHeader {
+  margin-top: 5rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+hr {
+  width: 90%;
+}
+
+#dashboardLogo {
+  display: flex;
+  width: 8rem;
+  height: 8rem;
+  padding: 1rem;
+}
+
+#dashboardIcons {
+  font-size: 2rem;
+  margin-bottom: .5rem;
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.table-container {
+  padding-bottom: 50px;
+  padding-left: 100px;
+  margin-top: 120px; /* Adjust margin as needed */
+}
+
+.table-container table {
+  border-collapse: collapse;
+  width: 100%; /* Adjust width as needed */
+}
+
+.table-container th,
+.table-container td {
+  border: 5px solid #d9d9d9; /* Border style */
+  padding: 8px; /* Padding for cells */
+  text-align: left;
+}
+
+.table-container th {
+  background-color: #ffbd59;
+}
+
+/* Table hover effect */
+.table-container tr:hover {
+  background-color: #f2f2f2;
+}
+
+.view {
+  background-color: #ff5a00;
+  border-radius: 8px;
+  color: #fff;
+  width: 80px;
+  padding: 4px 4px;
+  font-size: 16px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.view:hover{
+  background-color: #ff914d;
+  color: #fff; 
+}
+
+.view[disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.searchBar {
+  margin-left: 635px;
+  width: 300px; /* Width of search bar */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.pagination button {
+  margin-top: 10px;
+  padding-right: 20px;
+}
+
+.pagination button.active {
+  color: #1167b1;
+  text-decoration: underline;
+  cursor: default;
+}
+
+.pagination button:hover {
+  color: #1167b1;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<div id="container">
+    <h1>Create Reviewer Account</h1>
+    <form (submit)="register()" class="formDesign">
+        <label for="email">Email: </label>
+        <input type="text" name="email" [(ngModel)]="email" placeholder="Enter your email" required>
+        <label for="fName">First Name: </label>
+        <input type="text" name="fName" [(ngModel)]="firstName" placeholder="Enter your first name" required>
+        <label for="lName">Last Name: </label>
+        <input type="text" name="lName" [(ngModel)]="lastName" placeholder="Enter your last name" required>
+        <label for="password">Password: </label>
+        <input type="password" name="password" [(ngModel)]="password" placeholder="Enter your password" required>
+        <input type="submit" value="Register">
+    </form>
+</div>

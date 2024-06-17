@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+  <div id="container">
+    
+   <!-- journal-submission.component.html -->
+
+    <form (ngSubmit)="submitJournal()" enctype="multipart/form-data">
+      <label for="journalTitle">Manuscript Title:</label>
+      <input type="text" id="journalTitle" name="journalTitle" [(ngModel)]="journalTitle" required>
+    
+      <label for="authors">Author(s):</label>
+      <input type="text" id="authors" name="authors" [(ngModel)]="authors" required>
+    
+      <label for="abstract">Abstract:</label>
+      <textarea id="abstract" name="abstract" [(ngModel)]="abstract" required></textarea>
+    
+      <label for="journalFile">Manuscript File <i class="fa-solid fa-file-pdf"></i>(PDF):</label>
+      <input type="file" id="journalFile" name="journalFile" (change)="onFileSelected($event)" required>
+    
+      <button class="submit">Submit Journal</button>
+    </form>
+  </div>

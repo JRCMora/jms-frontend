@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+
+<div id="container">
+  <div class="feedbackContainer" *ngIf="consolidatedFeedback">
+    <h2>Feedback for: {{ journalTitle }}</h2>
+    <hr>
+    <div>
+      <strong>Feedback:</strong> {{ consolidatedFeedback }}
+    </div>
+    <div *ngIf="status === 'Needs Revision'">
+      <form (ngSubmit)="submitRevisedJournal()" enctype="multipart/form-data">
+        <label for="journalFile">Revised Manuscript File <i class="fa-solid fa-file-pdf"></i>(PDF):</label>
+        <input type="file" id="journalFile" name="journalFile" (change)="onFileSelected($event)" required>
+        <button type="submit" class="submit">Submit Revised Journal</button>
+      </form>
+    </div>
+  </div>
+</div>

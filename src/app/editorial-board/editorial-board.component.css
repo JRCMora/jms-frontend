@@ -1,0 +1,208 @@
+h1 {
+    margin-left: 5rem;
+    font-size: 30px;
+}
+
+  .dropdown-toggle {
+    display: none;
+  }
+  
+  .dropdown-label {
+    cursor: pointer;
+    display: block;
+  }
+  
+  .dropdown-menu {
+    border-radius: 10px;
+    width: 180px;
+    display: none;
+    position: absolute;
+    background-color: #fecb98;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-menu a,
+  .dropdown-menu button {
+    display: block;
+    border-radius: 10px;
+    color: #000;
+    padding-left: 15px;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .dropdown-menu a:hover {
+    text-align: left;
+    color: #ff5a00;
+    background-color: #fff;
+  }
+  
+  .dropdown-menu button:hover {
+    text-align: left;
+    color: #ff5a00;
+    background-color: #fff;
+  }
+  
+  .dropdown-item {
+    width: 100%;
+  }
+  
+  /* Adjusted styles to show the menu when the checkbox is checked */
+  .dropdown-toggle:checked + .dropdown-label + .dropdown-menu {
+    display: block;
+  }
+  
+  /* Hide checkbox visually but keep it accessible for screen readers */
+  .dropdown-toggle {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  
+  #navbarH {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #424242;
+    margin: auto;
+    height: 6rem;
+    padding-right: 8rem;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    justify-content: flex-end;
+  }
+  
+  .nav-icon{
+    color: #e58d05;
+    font-size: 2rem;
+    padding-left: 0.8rem;
+  }
+  
+  .nav-icon:hover {
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+  
+  .rightnavText li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+.dash {
+    font-weight: 500;
+    font-size: 20px;
+    padding: 5px;
+    background-color: #e58d05;
+    border-radius: 10px;
+    color: #fff; /* Set text color to white */
+    text-decoration: none; /* Remove underline */
+    margin-right: 1rem; /* Match spacing with other elements */
+}
+
+.dash:hover {
+    color: #000;
+    background-color: #fecb98;
+}
+
+#login {
+    margin-right: 1rem;
+}
+
+#login, #register {
+    font-weight: 500;
+    font-size: 20px;
+    width: 130px;
+    padding: 5px;
+    background-color: #fe9800;
+    border-radius: 20px;
+}
+
+#login:hover, #register:hover{
+    color: #000;
+    background-color: #fecb98;
+}
+
+.container {
+    padding-top: 8rem;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.header{
+    text-align: center; /* Center the header */
+    font-size: 30px;
+}
+
+.published {
+    font-size: 20px;
+}
+
+.journal-item {
+    display: block;
+    margin: 10px;
+}
+
+.journal-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 800px; /* Box width */
+}
+
+.journal-box button {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+.journal-box button:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.pagination button {
+    margin-top: 10px;
+    padding-right: 20px;
+  }
+  
+  .pagination button.active {
+    color: #1167b1;
+    text-decoration: underline;
+    cursor: default;
+  }
+  
+  .pagination button:hover {
+    color: #1167b1;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    list-style-type: none;
+}
+
+
+
+.user-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .user-box {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .admins {
+    margin-top: 250px;
+  }

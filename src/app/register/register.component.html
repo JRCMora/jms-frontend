@@ -1,0 +1,27 @@
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form (submit)="register()">
+            <label for="email">Email: </label>
+            <input type="text" name="email" [(ngModel)]="email" placeholder="Enter your email" required>
+            <label for="fName">First Name: </label>
+            <input type="text" name="fName" [(ngModel)]="firstName" placeholder="Enter your first name" required>
+            <label for="lName">Last Name: </label>
+            <input type="text" name="lName" [(ngModel)]="lastName" placeholder="Enter your last name" required>
+            <label for="password">Password: </label>
+            <input type="{{ passwordVisible ? 'text' : 'password' }}" name="password" [(ngModel)]="password" placeholder="Enter your password" (focus)="showPasswordCriteria = true" (blur)="showPasswordCriteria = false">
+            <div class="password-toggle" (click)="togglePasswordVisibility()">
+                <i class="fa-regular fa-eye" *ngIf="!passwordVisible"></i>
+                <i class="fa-regular fa-eye-slash" *ngIf="passwordVisible"></i>
+            </div>
+            <ul *ngIf="showPasswordCriteria && isPasswordValid() || showPasswordCriteria && !isPasswordValid()">
+                <li [class.invalid]="!isAtLeastEightCharacters()"><span [class.valid]="isAtLeastEightCharacters()">{{ isAtLeastEightCharacters() ? '✔️' : '❌' }}</span> Is at least 8 characters long</li>
+                <li [class.invalid]="!hasUppercaseLowercaseLetters()"><span [class.valid]="hasUppercaseLowercaseLetters()">{{ hasUppercaseLowercaseLetters() ? '✔️' : '❌' }}</span> At least one uppercase and lowercase letter</li>
+                <li [class.invalid]="!hasSpecialCharacter()"><span [class.valid]="hasSpecialCharacter()">{{ hasSpecialCharacter() ? '✔️' : '❌' }}</span> At least one special character</li>
+            </ul>
+            <input type="submit" value="Register">
+            <p>or</p>
+            <a routerLink="/login">Already have an account? </a>
+        </form>
+    </div>
+</body>

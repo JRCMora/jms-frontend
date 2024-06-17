@@ -1,0 +1,19 @@
+<nav id="navbarH">
+    <h1></h1>
+    <ul>
+        <button id="publication"><a href="/publication">Back to publication</a></button>
+    </ul>
+</nav>
+
+<div id="container" class="container">
+    <div class="journalContainer" *ngIf="journal">
+      <h2>Title: {{ journal.journalTitle }}</h2>
+      <p>Authors: {{ journal.authors.join(', ') }}</p>
+      <p>Date Published: {{ journal.publicationDate | date }}</p>
+      <a class="download" [href]="journal.downloadUrl" target="_blank"><i class="fa-solid fa-file-pdf"></i>Download</a>
+      <p>Abstract: {{ journal.abstract }}</p>
+      
+    </div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+  </div>
+  

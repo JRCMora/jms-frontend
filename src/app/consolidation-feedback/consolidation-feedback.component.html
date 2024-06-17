@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+    <div id="container">
+      <div class="feedbackContainer" *ngIf="feedback">
+          <h2>Feedbacks for: {{ journalTitle }}</h2>
+          <div *ngFor="let item of feedback">
+              <p><strong>Reviewer: </strong> {{ item.reviewer }} </p> 
+              <p><strong>Feedback: </strong> {{ item.feedback }} </p>
+              <p><strong>Choice: </strong> {{ item.choice }}</p>
+            <hr>
+          </div>
+        
+          <h2>Consolidate Feedback</h2>
+          <textarea [(ngModel)]="consolidatedFeedback" placeholder="Enter consolidated feedback"></textarea>
+          <div class="choices">
+            <label class="choice">
+              <input type="radio" name="adminChoice" value="Accepted" [(ngModel)]="adminChoice">
+              <span class="custom-radio"></span>
+              Accept
+            </label>
+            <label class="choice">
+              <input type="radio" name="adminChoice" value="Needs Revision" [(ngModel)]="adminChoice">
+              <span class="custom-radio"></span>
+              Need Revision
+            </label>
+            <label class="choice">
+              <input type="radio" name="adminChoice" value="Rejected" [(ngModel)]="adminChoice">
+              <span class="custom-radio"></span>
+              Reject
+            </label>
+          </div>
+          <div class="feedback">
+            <button (click)="submitConsolidatedFeedback()">Submit</button>
+          </div>
+      </div>
+    </div>
+    
+    

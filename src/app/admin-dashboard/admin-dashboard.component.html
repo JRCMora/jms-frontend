@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+<div class="background">
+  <div class="containerBox">
+    <div id="dashboardHeader">
+      <h1>Dashboard</h1>
+      <hr>
+    </div>
+    <div id="container">
+      <div class="box">
+
+        <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+        <span class="text">{{ totalRubrics }} </span>
+        <span class="text">Total Rubrics </span>
+
+    </div>   
+    <div class="box">
+      <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+      <span class="text">{{ totalUsers }} </span>
+      <span class="text">Total Users</span>
+    </div>
+    
+      <div class="box">
+
+        <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+        <span class="text">{{ totalJournals }} </span>
+        <span class="text">Total Manuscripts</span>
+
+    </div>  
+      <div class="box">
+        <p>Journal Status</p>
+        <hr>
+        <ngx-charts-pie-grid
+        [view]="[1050,300]"
+        [scheme]="colorScheme"
+        [results]="journalStatusData"
+        >
+        </ngx-charts-pie-grid>
+ 
+        
+      </div>
+    </div>
+    
+  </div>
+</div>

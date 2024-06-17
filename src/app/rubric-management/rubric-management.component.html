@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+  <div id="container">
+    <div class="table-container">
+      
+      <button class="createRubric"><a href="/admin/rubric-management/create-rubric">Create Rubric</a></button>
+      <input type="text" placeholder="Search..." class="searchBar" [(ngModel)]="searchQuery" (input)="filterRubrics()">
+      
+      <table>
+        <thead>
+          <tr>
+            <th (click)="sortRubrics('displayedId')">
+              ID
+              <span *ngIf="sortColumn === 'displayedId' && sortDirection === 'asc'">&#9660;</span>
+              <span *ngIf="sortColumn === 'displayedId' && sortDirection === 'desc'">&#9650;</span>
+            </th>
+            <th (click)="sortRubrics('name')">
+              Rubric Name
+              <span *ngIf="sortColumn === 'name' && sortDirection === 'asc'">&#9660;</span>
+              <span *ngIf="sortColumn === 'name' && sortDirection === 'desc'">&#9650;</span>
+            </th>            
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rubric of filteredRubrics.slice(startIndex, endIndex + 1)">
+            <td>{{ rubric.displayedId }}</td>
+            <td>{{ rubric.name }}</td>
+            <td>
+              <button class="view" (click)="viewRubric(rubric._id)">View</button>
+              <!-- <button><i class="fa-solid fa-pen-to-square"></i></button> -->
+              <button (click)="deleteRubric(rubric._id)"><i class="fa-solid fa-trash-can"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+        <span> 
+          <!-- Iterate over page numbers and add click handler -->
+          <ng-container *ngFor="let pageNumber of getPageNumbers()">
+            <button (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</button>
+          </ng-container>
+        </span>
+        <button (click)="onPageChange(currentPage + 1)" [disabled]="endIndex === filteredRubrics.length - 1">Next</button>
+  
+      </div>
+    </div>
+  </div>

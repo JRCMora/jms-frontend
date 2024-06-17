@@ -1,0 +1,86 @@
+<app-navbar></app-navbar>
+  
+  <div id="container">
+    <div class="table-container">
+      <input type="text" placeholder="Search..." class="searchBar" [(ngModel)]="searchQuery" (input)="filterJournals()">
+      
+      <table>
+        <thead>
+          <tr>
+            <th (click)="sortJournals('id')">
+              ID
+              <span *ngIf="sortColumn === 'id' && sortDirection === 'asc'">&#9660;</span>
+              <span *ngIf="sortColumn === 'id' && sortDirection === 'desc'">&#9650;</span>
+            </th>
+            <th (click)="sortJournals('journalTitle')">
+              Journal Title
+              <span *ngIf="sortColumn === 'journalTitle' && sortDirection === 'asc'">&#9660;</span>
+              <span *ngIf="sortColumn === 'journalTitle' && sortDirection === 'desc'">&#9650;</span>
+            </th>
+            <th (click)="sortJournals('authors')">
+              Author
+              <span *ngIf="sortColumn === 'authors' && sortDirection === 'asc'">&#9660;</span>
+              <span *ngIf="sortColumn === 'authors' && sortDirection === 'desc'">&#9650;</span>
+            </th>            
+            <th (click)="sortJournals('reviewerNames')">
+              Assigned Reviewer(s)
+              <span *ngIf="sortColumn === 'reviewerNames' && sortDirection === 'asc'">&#9660;</span>
+              <span *ngIf="sortColumn === 'reviewerNames' && sortDirection === 'desc'">&#9650;</span>
+            </th>
+            <th (click)="sortJournals('status')">
+              Status
+              <span *ngIf="sortColumn === 'status' && sortDirection === 'asc'">&#9660;</span>
+              <span *ngIf="sortColumn === 'status' && sortDirection === 'desc'">&#9650;</span>
+            </th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        
+        
+        <tbody>
+          <tr *ngFor="let journal of filteredJournals.slice(startIndex, endIndex + 1)">
+            <td>{{ journal.id }}</td>
+            <td>{{ journal.journalTitle }}</td>
+            <td>{{ journal.authors }}</td>
+            <td>
+              <ng-container *ngIf="journal.reviewerNames && journal.reviewerNames.length > 0">
+                <span *ngFor="let reviewerName of journal.reviewerNames; let last = last">
+                  {{ reviewerName }}{{ !last ? ', ' : '' }}
+                </span>
+              </ng-container>
+            </td>
+            <td>{{ journal.status }}</td>
+            <td class="actionButton">
+              <div class="dropdown">
+                <button class="dropbtn">Options</button>
+                <div class="dropdown-content">
+                  <button (click)="publishJournal(journal)" *ngIf="journal.status !== 'Published'" [disabled]="journal.status !== 'Accepted'">
+                    <i class="fa-solid fa-file-export"></i> Publish
+                  </button>
+                  <button (click)="viewConsolidatedFeedback(journal._id)" [disabled]="journal.status !== 'Reviewed'">
+                    <i class="fa-solid fa-comment-dots"></i> Consolidate Feedback
+                  </button>
+                  <button (click)="assignReviewer(journal)" [disabled]="journal.status === 'Reviewed' || journal.status === 'Accepted' || journal.status === 'Rejected' || journal.status === 'Needs Revision' || journal.status === 'Published'">
+                    <i class="fa-solid fa-user-pen"></i> Assign Reviewer
+                  </button>
+                  <button (click)="deleteJournal(journal._id)">
+                    <i class="fa-solid fa-trash-can"></i> Delete
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+        <span> 
+          <!-- Iterate over page numbers and add click handler -->
+          <ng-container *ngFor="let pageNumber of getPageNumbers()">
+            <button (click)="goToPage(pageNumber)" [class.active]="pageNumber === currentPage">{{ pageNumber }}</button>
+          </ng-container>
+        </span>
+        <button (click)="onPageChange(currentPage + 1)" [disabled]="endIndex === filteredJournals.length - 1">Next</button>
+      </div>
+    </div>
+  </div>

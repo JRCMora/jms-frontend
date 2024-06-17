@@ -1,0 +1,333 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-content {
+  cursor: pointer;
+  display: block;
+}
+
+.unread {
+  font-weight: bold;
+  background-color: #ff5a00;
+}
+
+.read {
+  background-color: #fecb98;
+}
+
+.badge {
+  position: absolute;
+  background-color: #ff5a00; /* Badge background color */
+  color: #fff; /* Badge text color */
+  font-size: 0.8rem; /* Adjust the font size as needed */
+  padding: 0.2rem 0.5rem; /* Adjust the padding as needed */
+  border-radius: 50%; /* Make it a circle */
+}
+
+.dropdown-toggle {
+  display: none;
+}
+
+.dropdown-label {
+  cursor: pointer;
+  display: block;
+}
+
+.dropdown-menu {
+  color: #fff;
+  width: 200px;
+  display: none;
+  position: absolute;
+  background-color: #c8691c;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.dropdown-menu button{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.dropdown-menu a:hover {
+  padding: 10px;
+  color: #ff5a00;
+  background-color: #ffbd59;
+}
+
+.dropdown-menu button:hover {
+  padding: 10px;
+  color: #000;
+  background-color: #ff5a00;
+}
+
+.dropdown-item {
+  width: 100%;
+}
+
+/* Adjusted styles to show the menu when the checkbox is checked */
+.dropdown-toggle:checked + .dropdown-label + .dropdown-menu {
+  display: block;
+}
+
+/* Hide checkbox visually but keep it accessible for screen readers */
+.dropdown-toggle {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+#navbarH {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #424242;
+  margin: auto;
+  height: 6rem;
+  padding-right: 8rem;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  justify-content: flex-end;
+}
+
+.nav-icon{
+  color: #ff5a00;
+  font-size: 2rem;
+  padding-left: 0.8rem;
+}
+
+.nav-icon:hover {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+
+.rightnavText li {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+#dashboardHeader {
+  margin-top: 5rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+hr {
+  width: 90%;
+}
+
+#dashboardLogo {
+  display: flex;
+  width: 8rem;
+  height: 8rem;
+  padding: 1rem;
+}
+
+#dashboardIcons {
+  font-size: 2rem;
+  margin-bottom: .5rem;
+}
+
+#navbarV {
+  background-color: rgba(254, 152, 0);
+  height: 100vh;
+  position: fixed;
+  width: 8rem;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: bottom;
+  z-index: 2000;
+}
+
+#navbarV a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 16px;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#navbarV a:hover,
+#navbarV a:focus {
+  color: #ff5a00;
+  background-color: #fff;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+#navbarV a.active {
+  color: #ff5a00; /* Set the color for the active link */
+  background-color: #fff;
+}
+
+#navbarV ul {
+  padding: 0px;
+  list-style-type: none;
+}
+
+#navbarV li {
+  margin-bottom: 1rem;
+}
+
+.leftnavText li {
+  margin-bottom: 2rem;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0px 1px 0px 1px;
+  padding: 0px;
+}
+
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 1rem 1rem 0rem 1rem;
+  text-decoration: none;
+}
+  
+  .box .icon{
+    margin-right: 10px;
+    font-size: 5rem;
+    color: #78380c;
+  }
+  
+  #container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8rem;
+  }
+  
+  .createUser{
+    background-color: #ff5a00;
+    border-radius: 12px;
+    color: #fff;
+    position: relative;
+    width: 150px;
+    left: 29rem;
+    padding: 8px 8px;
+    font-size: 16px;
+    margin: 14px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+  }
+  
+  .createUser:hover{
+    background-color: #f3c408;
+    color: #fff; 
+  }
+  
+  button i.fa-pen-to-square {
+    margin-right: 12px;
+    font-size: 1.5rem;
+    color: #000;
+  }
+  
+  button i.fa-trash-can {
+    margin-left: 12px;
+    font-size: 1.5rem;
+    color: #ff0000;
+  }
+  
+  button:hover i.fa-pen-to-square {
+    transition: color 0.3s ease;
+    color: #737373 ;
+  }
+  
+  button:hover i.fa-trash-can {
+    transition: color 0.3s ease;
+    color: #c10404;
+  }
+  
+  .table-container {
+    padding-bottom: 50px;
+    padding-right: 200px;
+    margin-top: 20px; /* Adjust margin as needed */
+  }
+  
+  .table-container table {
+    border-collapse: collapse;
+    width: 170%; /* Adjust width as needed */
+  }
+  
+  .table-container th,
+  .table-container td {
+    border: 5px solid #d9d9d9; /* Border style */
+    padding: 8px; /* Padding for cells */
+    text-align: center;
+  }
+  
+  .table-container th {
+    background-color: #ffbd59; /* Background color for header */
+  }
+  
+  /* Table hover effect */
+  .table-container tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .optionButton {
+    margin-right: 10px;
+  }
+  
+  .searchBar {
+    position: relative;
+    left: 4.5rem;
+    margin-left: 20.5rem;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-bottom: 5px; /* Add space between search bar and table */
+  }
+  
+  ::placeholder{
+    color: #fecb98;
+  }
+  
+  .searchBar input[type="text"] {
+    background-color: rgba(254, 152, 0);
+    width: 300px; /* Width of search bar */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+  }

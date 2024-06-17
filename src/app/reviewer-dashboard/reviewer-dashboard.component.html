@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<div class="background">
+  <div class="containerBox">
+    <div id="dashboardHeader">
+      <h1>Dashboard</h1>
+      <hr>
+    </div>
+    <div id="container">
+      <div class="box">
+
+        <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+        <span class="text">{{totalAssignedJournals}} </span>
+        <span class="text">Total Assigned Journals </span>
+
+    </div> 
+    <div class="box">
+
+      <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+      <span class="text">{{totalAssignedUnderReview}} </span>
+      <span class="text">Total Under Review </span>
+
+  </div> 
+  <div class="box">
+
+    <span class="icon"><i class="fa-solid fa-user-group"></i></span>
+    <span class="text">{{totalAssignedReviewed}} </span>
+    <span class="text">Total Reviewed</span>
+
+</div> 
+<div class="box">
+  <p>Journal Status</p>
+  <hr>
+  <ngx-charts-pie-grid
+    [view]="[400, 300]"
+    [scheme]="colorScheme"
+    [results]="journalStatusData"
+  ></ngx-charts-pie-grid>
+</div>
+    </div>
+  </div>
+</div>

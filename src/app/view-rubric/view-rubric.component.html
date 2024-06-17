@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<div class="rubric-details" *ngIf="rubric">
+    <h2>Rubric Name: {{ rubric.name }}</h2>
+    <p>Rubric Description: {{ rubric.description }}</p>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Criteria</th>
+          <th *ngFor="let level of rubric.components[0].levels">{{ level.label }} ({{ level.score }})</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let component of rubric.components">
+          <td>{{ component.name }}</td>
+          <td *ngFor="let level of component.levels"> {{level.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
